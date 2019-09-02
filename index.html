@@ -22,8 +22,8 @@
     <div>
         <!-- <button onclick="zoomIn()">Zoom 100%</button>
         <button onclick="zoomOut()">Zoom Normal</button> -->
-        <button onclick="fetchLocation(1)">Move forward</button>
-        <button onclick="fetchLocation(2)">Move back</button>
+        <button onclick="fetchLocation()">start</button>
+        <p id= "detail">details here...</p>
     </div>
     <!-- <script src="./gps.js"> -->
 
@@ -117,7 +117,10 @@ function getPosition(current) {
        d = distance(current.lat, current.lng, startingPoint.lat, startingPoint.lng); // that is in  from startin point
    }
 
-   alert(d  + ' '+  current.lat);
+   let detail = document.getElementById('detail');
+   detail.innerHTML = `distance is ${d}
+                        <br/> lat & lng: ${current.lat}, ${current.lng}`;
+  // alert(d  + ' '+  current.lat);
    moveMarker(d); // we assumed that 1 miles is same as 1 px here
    lastVisitedPosition = current;
 }
